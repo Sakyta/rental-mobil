@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author nurka
  */
-public class PegawaiModel {
+public class MobilModel {
     private String driver = "com.mysql.cj.jdbc.Driver";
     private String db = "jdbc:mysql://localhost:3306/db_momobilan";
     private String user = "root";
@@ -18,7 +18,7 @@ public class PegawaiModel {
     private Statement state = null;
     private ResultSet rs = null;
     
-    public void PegawaiModel()
+    public void MobilModel()
     {
         try
         {
@@ -40,9 +40,9 @@ public class PegawaiModel {
         }
     }
     
-    public boolean insert(String id, String nama, String alamat, String kontak)
+    public boolean insert(String id, String jenis, String sewa, String stok)
     {
-        String query = "INSERT INTO pegawai VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO mobil VALUES (?, ?, ?, ?)";
         
         try 
         {
@@ -57,15 +57,15 @@ public class PegawaiModel {
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
         {
             preparedStatement.setString(1, id);
-            preparedStatement.setString(2, nama);
-            preparedStatement.setString(3, alamat);            
-            preparedStatement.setString(4, kontak);  
+            preparedStatement.setString(2, jenis);
+            preparedStatement.setString(3, sewa);            
+            preparedStatement.setString(4, stok);  
 
             preparedStatement.executeUpdate();
             return true;
         } 
         catch (SQLException e) 
-        {
+        {            
             e.printStackTrace();
             return false;
         }
@@ -83,7 +83,34 @@ public class PegawaiModel {
     
     public ResultSet searchData(String id)
     {        
-        String query = "SELECT * FROM pegawai WHERE id_pegawai = " + id ;
+        String query = "SELECT * FROM mobil WHERE id_mobil = '" + id + "'";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try
+        {
+            state = (Statement) conn.createStatement();
+            rs = state.executeQuery(query);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet getData()
+    {
+        String query = "SELECT * FROM mobil";
         
         try 
         {
@@ -107,31 +134,4 @@ public class PegawaiModel {
         
         return rs;
     }
-    
-    public ResultSet getData()
-    {
-        String query = "SELECT * FROM pegawai";
-        
-        try 
-        {
-            conn = (Connection) DriverManager.getConnection(db, user, password);
-            state = (Statement) conn.createStatement();
-        } 
-        catch (Exception e) 
-        {
-            System.out.println("Connection Error");
-        }
-        
-        try
-        {
-            state = (Statement) conn.createStatement();
-            rs = state.executeQuery(query);
-        }
-        catch (Exception e)
-        {
-            System.out.println("Error");
-        }
-        
-        return rs;
-    }    
 }

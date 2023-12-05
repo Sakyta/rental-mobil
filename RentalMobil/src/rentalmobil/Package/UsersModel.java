@@ -43,9 +43,35 @@ public class UsersModel {
         }
     }
     
-    public void insert()
+    public boolean insert(String username, String pass, String id)
     {
-        // TODO
+        String query = "INSERT INTO users VALUES (?, ?, ?, 1)";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
+        {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, pass);
+            preparedStatement.setString(3, id);            
+
+            preparedStatement.executeUpdate();
+            
+            return true;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
     }
     
     public void update()
@@ -61,6 +87,33 @@ public class UsersModel {
     public ResultSet getData()
     {        
         String query = "SELECT * FROM users";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try
+        {
+            state = (Statement) conn.createStatement();
+            rs = state.executeQuery(query);
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error");
+        }
+        
+        return rs;
+    }
+    
+        public ResultSet searchData(String id)
+    {
+        String query = "SELECT * FROM users WHERE id_pegawai = " + id;
         
         try 
         {

@@ -171,14 +171,16 @@ public class LoginForm extends javax.swing.JFrame {
                             AdminPage object = new AdminPage();                            
                             object.setVisible(true);
                             object.setId(hasil.getString(3));
-                            dispose();                                                                                                                
+                            dispose();
+                            break;                            
                         }   
                         else if (hasil.getInt(4) == 1)
                         {
                             JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
                             PegawaiPage object = new PegawaiPage();
                             object.setVisible(true);
-                            dispose();                                                                                    
+                            dispose();                
+                            break;
                         }
                     }
                     else 
