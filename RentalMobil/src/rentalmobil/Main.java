@@ -4,20 +4,21 @@
  */
 package rentalmobil;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 
 /**
  *
  * @author nurka
  */
-public class RentalMobil extends javax.swing.JFrame {
+public class Main extends javax.swing.JFrame {
 
     /**
      * Creates new form RentalMobil
      */
-    public RentalMobil() {
+    public Main() {
+        FlatDarkLaf.setup();
         initComponents();
     }
     
@@ -64,9 +65,9 @@ public class RentalMobil extends javax.swing.JFrame {
         infoText.setForeground(new java.awt.Color(0, 0, 0));
         infoText.setText("Loading...");
 
-        jLabel2.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("RENTAL MOBIL");
+        jLabel2.setText("MOMOBILAN");
 
         loadingText.setFont(new java.awt.Font("MS PGothic", 0, 14)); // NOI18N
         loadingText.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,21 +85,19 @@ public class RentalMobil extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(progressBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(infoText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(loadingText))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(jLabel2)
-                        .addGap(0, 159, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(infoText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(loadingText)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
+                .addGap(234, 234, 234)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(170, 170, 170))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,13 +139,14 @@ public class RentalMobil extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
+            UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RentalMobil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
                 
-        RentalMobil rm = new RentalMobil();
+        Main rm = new Main();
         rm.setVisible(true);
         
         try
@@ -158,7 +158,7 @@ public class RentalMobil extends javax.swing.JFrame {
                 
                 if (i == 10)
                 {
-                    rm.infoText.setText("Memuat Aplikasi");
+                    rm.infoText.setText("Memuat Aplikasi....");
                 }
                 if (i == 20)
                 {
