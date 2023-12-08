@@ -126,7 +126,34 @@ public class PegawaiModel {
         }
     }
     
-    public ResultSet searchData(String id)
+    public ResultSet searchData(String nama)
+    {        
+        String query = "SELECT * FROM pegawai JOIN users ON pegawai.id_pegawai = users.id_pegawai WHERE pegawai.nama LIKE '%" + nama + "%'";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try
+        {
+            state = (Statement) conn.createStatement();
+            rs = state.executeQuery(query);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        
+        return rs;
+    }
+    
+    public ResultSet searchDataId(String id)
     {        
         String query = "SELECT * FROM pegawai JOIN users ON pegawai.id_pegawai = users.id_pegawai WHERE pegawai.id_pegawai = '" + id + "'";
         

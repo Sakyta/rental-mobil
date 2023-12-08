@@ -63,6 +63,7 @@ public class LoginForm extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 48)); // NOI18N
@@ -156,48 +157,42 @@ public class LoginForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         String username = usernameField.getText();
         String password = passwordField.getText();
-        
-        ResultSet hasil = users.getData();
+                    
         try {
-            while (hasil.next())
+            ResultSet hasil = users.searchData(username);    
+            
+            if (hasil.next())
             {
-                if (username.equals(hasil.getString(1)))
+                if (hasil.getString(2).equals(password))
                 {
-                    if (password.equals(hasil.getString(2)))
+                    if (hasil.getInt(4) == 0)
                     {
-                        if (hasil.getInt(4) == 0)
-                        {
-                            JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
-                            AdminPage object = new AdminPage();                            
-                            object.setVisible(true);
-                            object.setId(hasil.getString(3));
-                            dispose();
-                            break;                            
-                        }   
-                        else if (hasil.getInt(4) == 1)
-                        {
-                            JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
-                            PegawaiPage object = new PegawaiPage();
-                            object.setVisible(true);
-                            object.setId(hasil.getString(3));
-                            dispose();                
-                            break;
-                        }
-                    }
-                    else 
+                        JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
+                        AdminPage object = new AdminPage();                            
+                        object.setVisible(true);
+                        object.setId(hasil.getString(3));
+                        dispose();
+                    }   
+                    else if (hasil.getInt(4) == 1)
                     {
-                        JOptionPane.showMessageDialog(rootPane, "Username atau Password Salah", "Error", 2);                        
+                        JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
+                        PegawaiPage object = new PegawaiPage();
+                        object.setVisible(true);
+                        object.setId(hasil.getString(3));
+                        dispose();                                    
                     }
-                }
-                else
+                }                
+                else 
                 {
-                    JOptionPane.showMessageDialog(rootPane, "Username atau Password Salah", "Error", 2);                        
-                }
+                    JOptionPane.showMessageDialog(rootPane, "Username atau Password Salah", "Error", 2);
+                }                
             }
-        } 
-        catch (SQLException ex) 
-        {
-            Logger.getLogger(LoginForm.class.getName()).log(Level.SEVERE, null, ex);
+            else
+            {
+                JOptionPane.showMessageDialog(rootPane, "Username atau Password Salah", "Error", 2);
+            }        
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Username atau Password Salah", "Error", 2);
         }
     }//GEN-LAST:event_submitButtonActionPerformed
 

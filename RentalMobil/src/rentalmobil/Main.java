@@ -55,6 +55,7 @@ public class Main extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Momobilan");
         setFocusable(false);
         setFocusableWindowState(false);
         setResizable(false);

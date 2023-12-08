@@ -126,9 +126,9 @@ public class MobilModel {
         }
     }
     
-    public ResultSet searchData(String id)
+    public ResultSet searchData(String jenis)
     {        
-        String query = "SELECT * FROM mobil WHERE id_mobil = '" + id + "'";
+        String query = "SELECT * FROM mobil WHERE jenis LIKE '%" + jenis + "%'";
         
         try 
         {

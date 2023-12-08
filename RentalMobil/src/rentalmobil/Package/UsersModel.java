@@ -155,9 +155,9 @@ public class UsersModel {
         return rs;
     }
     
-        public ResultSet searchData(String id)
+    public ResultSet searchData(String username)
     {
-        String query = "SELECT * FROM users WHERE id_pegawai = " + id;
+        String query = "SELECT * FROM users WHERE username = '" + username + "'";
         
         try 
         {

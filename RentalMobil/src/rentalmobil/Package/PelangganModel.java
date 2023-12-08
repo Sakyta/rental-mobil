@@ -58,8 +58,8 @@ public class PelangganModel {
         {
             preparedStatement.setString(1, id);
             preparedStatement.setString(2, nama);
-            preparedStatement.setString(3, alamat);            
-            preparedStatement.setString(4, kontak);  
+            preparedStatement.setString(3, kontak);            
+            preparedStatement.setString(4, alamat);  
 
             preparedStatement.executeUpdate();
             return true;

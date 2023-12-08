@@ -135,22 +135,23 @@ public class PegawaiPage extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         tk = new javax.swing.JTextField();
-        telat = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         denda = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        telat = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
-        searchPeminjaman = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
+        searchPeminjaman = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pegawai Page");
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jTabbedPane1.setToolTipText("");
@@ -159,7 +160,7 @@ public class PegawaiPage extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
-        jLabel2.setText("Welcome to User");
+        jLabel2.setText("Welcome to User Page");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         jButton1.setText("Log Out");
@@ -415,8 +416,11 @@ public class PegawaiPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Data Pelanggan", jPanel4);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jLabel25.setFont(new java.awt.Font("Verdana", 1, 36)); // NOI18N
         jLabel25.setText("DATA MOBIL");
+        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 10, -1, -1));
 
         dataMobilTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -455,8 +459,18 @@ public class PegawaiPage extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(dataMobilTable);
 
+        jPanel5.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 109, 912, 375));
+
+        searchMobilField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                searchMobilFieldKeyPressed(evt);
+            }
+        });
+        jPanel5.add(searchMobilField, new org.netbeans.lib.awtextra.AbsoluteConstraints(491, 69, 201, 30));
+
         jLabel36.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
-        jLabel36.setText("Id Mobil");
+        jLabel36.setText("Jenis Mobil");
+        jPanel5.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, 30));
 
         searchMobilButton.setText("Search");
         searchMobilButton.addActionListener(new java.awt.event.ActionListener() {
@@ -464,6 +478,7 @@ public class PegawaiPage extends javax.swing.JFrame {
                 searchMobilButtonActionPerformed(evt);
             }
         });
+        jPanel5.add(searchMobilButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 100, 30));
 
         refreshMobilButton.setText("Refresh");
         refreshMobilButton.addActionListener(new java.awt.event.ActionListener() {
@@ -471,50 +486,7 @@ public class PegawaiPage extends javax.swing.JFrame {
                 refreshMobilButtonActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(413, Short.MAX_VALUE)
-                .addComponent(jLabel36)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(searchMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(searchMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(refreshMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(12, 12, 12)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane4)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(jLabel25)
-                            .addGap(335, 335, 335)))
-                    .addGap(12, 12, 12)))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36)
-                    .addComponent(searchMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(refreshMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(395, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addGap(10, 10, 10)
-                    .addComponent(jLabel25)
-                    .addGap(54, 54, 54)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(11, Short.MAX_VALUE)))
-        );
+        jPanel5.add(refreshMobilButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(822, 70, 100, 30));
 
         jTabbedPane1.addTab("Mobil", jPanel5);
 
@@ -813,15 +785,16 @@ public class PegawaiPage extends javax.swing.JFrame {
         tk.setEditable(false);
         tk.setFocusable(false);
         jPanel9.add(tk, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 306, 240, 30));
-        jPanel9.add(telat, new org.netbeans.lib.awtextra.AbsoluteConstraints(578, 56, 252, 30));
 
         jLabel28.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel28.setText("Telat");
-        jPanel9.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 57, -1, -1));
+        jPanel9.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 50, -1, 30));
 
         jLabel29.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel29.setText("Denda");
         jPanel9.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, -1, 40));
+
+        denda.setText("0");
         jPanel9.add(denda, new org.netbeans.lib.awtextra.AbsoluteConstraints(578, 157, 252, 30));
 
         jButton3.setText("Proses");
@@ -840,18 +813,18 @@ public class PegawaiPage extends javax.swing.JFrame {
         });
         jPanel9.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(671, 205, -1, 35));
 
+        telat.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                telatStateChanged(evt);
+            }
+        });
+        jPanel9.add(telat, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 50, 250, 30));
+
         jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 97, 900, 380));
 
         jLabel15.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel15.setText("Id Peminjaman");
         jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, 30));
-
-        searchPeminjaman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchPeminjamanActionPerformed(evt);
-            }
-        });
-        jPanel7.add(searchPeminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 240, 30));
 
         jButton2.setText("Search");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -864,6 +837,14 @@ public class PegawaiPage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel16.setText("Search Data Transaksi");
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        searchPeminjaman.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        searchPeminjaman.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                searchPeminjamanItemStateChanged(evt);
+            }
+        });
+        jPanel7.add(searchPeminjaman, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 240, 30));
 
         jTabbedPane1.addTab("Pengembalian", jPanel7);
 
@@ -1034,22 +1015,28 @@ public class PegawaiPage extends javax.swing.JFrame {
     private void deletePelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePelangganButtonActionPerformed
         // TODO add your handling code here:
         String id = editIdPelangganField.getText();
+        
+        int opsi = JOptionPane.showConfirmDialog(rootPane, "Apakah Kamu Yakin?", "Delete", 1);
 
-        pelanggan.delete(id);        
+        if (opsi == 0)
+        {
+            pelanggan.delete(id);
+            JOptionPane.showMessageDialog(rootPane, "Delete Data Berhasil!", "Success", 1);
 
-        editIdPelangganField.setText("");
-        editNamaPelangganField.setText("");
-        editAlamatPelangganField.setText("");
-        editContactPelangganField.setText("");        
+            editIdPelangganField.setText("");
+            editNamaPelangganField.setText("");
+            editAlamatPelangganField.setText("");
+            editContactPelangganField.setText("");        
 
-        editNamaPelangganField.setEnabled(false);
-        editAlamatPelangganField.setEnabled(false);
-        editContactPelangganField.setEnabled(false);        
+            editNamaPelangganField.setEnabled(false);
+            editAlamatPelangganField.setEnabled(false);
+            editContactPelangganField.setEnabled(false);        
 
-        editPelangganButton.setEnabled(false);
-        deletePelangganButton.setEnabled(false);
-        cancelPelangganButton.setEnabled(false);
-        tampilkan();
+            editPelangganButton.setEnabled(false);
+            deletePelangganButton.setEnabled(false);
+            cancelPelangganButton.setEnabled(false);
+            tampilkan();
+        }       
     }//GEN-LAST:event_deletePelangganButtonActionPerformed
 
     private void editPelangganButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPelangganButtonActionPerformed
@@ -1057,23 +1044,29 @@ public class PegawaiPage extends javax.swing.JFrame {
         String id = editIdPelangganField.getText();
         String nama = editNamaPelangganField.getText();
         String alamat = editAlamatPelangganField.getText();
-        String contact = editContactPelangganField.getText();        
+        String contact = editContactPelangganField.getText();  
+        
+        int opsi = JOptionPane.showConfirmDialog(rootPane, "Apakah Kamu Yakin?", "Update", 1);
+        
+        if (opsi == 0)
+        {
+            pelanggan.update(id, nama, alamat, contact);
+            JOptionPane.showMessageDialog(rootPane, "Update Data Berhasil!", "Success", 1);
 
-        pelanggan.update(id, nama, alamat, contact);
+            editIdPelangganField.setText("");
+            editNamaPelangganField.setText("");
+            editAlamatPelangganField.setText("");
+            editContactPelangganField.setText("");        
 
-        editIdPelangganField.setText("");
-        editNamaPelangganField.setText("");
-        editAlamatPelangganField.setText("");
-        editContactPelangganField.setText("");        
+            editNamaPelangganField.setEnabled(false);
+            editAlamatPelangganField.setEnabled(false);
+            editContactPelangganField.setEnabled(false);        
 
-        editNamaPelangganField.setEnabled(false);
-        editAlamatPelangganField.setEnabled(false);
-        editContactPelangganField.setEnabled(false);        
-
-        editPelangganButton.setEnabled(false);
-        deletePelangganButton.setEnabled(false);
-        cancelPelangganButton.setEnabled(false);
-        tampilkan();
+            editPelangganButton.setEnabled(false);
+            deletePelangganButton.setEnabled(false);
+            cancelPelangganButton.setEnabled(false);
+            tampilkan();
+        }               
     }//GEN-LAST:event_editPelangganButtonActionPerformed
 
     private void searchMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchMobilButtonActionPerformed
@@ -1155,24 +1148,32 @@ public class PegawaiPage extends javax.swing.JFrame {
 
     private void lamaPinjamStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_lamaPinjamStateChanged
         // TODO add your handling code here:
-        java.util.Date date = dateChooser.getDate();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        calendar.add(Calendar.DAY_OF_MONTH, Integer.parseInt(lamaPinjam.getValue().toString()));
-        java.util.Date newDate = calendar.getTime();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String formattedDate = dateFormat.format(newDate);
-        
-        tanggalKembali.setText(formattedDate);
-        
-        long totSew = Integer.parseInt(lamaPinjam.getValue().toString()) * Integer.parseInt(biayaSewa.getText());
-        totalSewa.setText(String.valueOf(totSew));
+        if (Integer.parseInt(lamaPinjam.getValue().toString()) < 0)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Lama Hari tidak boleh negatif!", "Error", 2);
+            lamaPinjam.setValue(0);
+        }
+        else
+        {
+            java.util.Date date = dateChooser.getDate();
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(date);
+            calendar.add(Calendar.DAY_OF_MONTH, Integer.parseInt(lamaPinjam.getValue().toString()));
+            java.util.Date newDate = calendar.getTime();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String formattedDate = dateFormat.format(newDate);
+
+            tanggalKembali.setText(formattedDate);
+
+            long totSew = Integer.parseInt(lamaPinjam.getValue().toString()) * Integer.parseInt(biayaSewa.getText());
+            totalSewa.setText(String.valueOf(totSew));
+        }        
     }//GEN-LAST:event_lamaPinjamStateChanged
 
     private void dateChooserPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateChooserPropertyChange
-        // TODO add your handling code here:
+        // TODO add your handling code here:        
         if ("date".equals(evt.getPropertyName()))
-        {
+        {            
             java.util.Date date = dateChooser.getDate();
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
@@ -1232,6 +1233,7 @@ public class PegawaiPage extends javax.swing.JFrame {
         String idPeg = idPegawai.getText();
         String idPel = idPelangganComBox.getSelectedItem().toString();
         String idMo = "";
+        int newStock = 0;
         ResultSet hasil = mobil.getData();
         try {
             while (hasil.next())
@@ -1239,6 +1241,10 @@ public class PegawaiPage extends javax.swing.JFrame {
                 if (hasil.getString(2).equals(jenisComBox.getSelectedItem().toString()))
                 {
                     idMo = hasil.getString(1);
+                    newStock = Integer.parseInt(hasil.getString(4)) - 1;
+                    mobil.update(idMo, hasil.getString(2), hasil.getString(3), String.valueOf(newStock));
+                    
+                    break;
                 }
             }
         } catch (SQLException ex) {
@@ -1252,22 +1258,19 @@ public class PegawaiPage extends javax.swing.JFrame {
         int lama = Integer.parseInt(lamaPinjam.getValue().toString());
         String biaya = totalSewa.getText();
         
-        peminjaman.insert(id, idPeg, idPel, idMo, tglPinjam, tglKembali, lama, 0, biaya, "10000");
+        peminjaman.insert(id, idPeg, idPel, idMo, tglPinjam, tglKembali, lama, 0, biaya, "10000");        
         JOptionPane.showMessageDialog(rootPane, "Peminjaman Berhasil!", "Success", 1);
         setTransaction();
         dateChooser.setDate(new java.util.Date());
         lamaPinjam.setValue(0);
         idPelangganComBox.setSelectedIndex(0);
         jenisComBox.setSelectedIndex(0);
+        tampilkan();
     }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void searchPeminjamanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPeminjamanActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_searchPeminjamanActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String id = searchPeminjaman.getText();
+        String id = searchPeminjaman.getSelectedItem().toString();
         
         ResultSet hasil = peminjaman.searchData(id);
         
@@ -1288,14 +1291,14 @@ public class PegawaiPage extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        if (telat.getText() == "0")
+        if (telat.getValue().equals("0"))
         {
             denda.setText("0");
             telat.setEnabled(false);
         }
         else
         {            
-            int tlt = Integer.parseInt(telat.getText());
+            int tlt = Integer.parseInt(telat.getValue().toString());
             long biaya = 10000;
             
             long dnd = tlt * biaya;
@@ -1307,11 +1310,25 @@ public class PegawaiPage extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        String id = searchPeminjaman.getText();
-        peminjaman.update(id, Integer.parseInt(telat.getText()), denda.getText());
+        String id = searchPeminjaman.getSelectedItem().toString();
+        String idMo = idmo.getText();
+        peminjaman.update(id, Integer.parseInt(telat.getValue().toString()), denda.getText());
         
-        JOptionPane.showMessageDialog(rootPane, "Berhasil Simpan!", "Success", 1);
-        searchPeminjaman.setText("");
+        ResultSet hasil = mobil.getData();
+        try {
+            while (hasil.next())
+            {
+                if (hasil.getString(1).equals(idMo))
+                {
+                    int newStock = Integer.parseInt(hasil.getString(4)) + 1;
+                    mobil.update(idMo, hasil.getString(2), hasil.getString(3), String.valueOf(newStock));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PegawaiPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, "Berhasil Simpan!", "Success", 1);        
         idpel.setText("");
         idmo.setText("");
         tp.setText("");
@@ -1319,9 +1336,88 @@ public class PegawaiPage extends javax.swing.JFrame {
         bs.setText("");
         tk.setText("");
         telat.setEnabled(true);
-        telat.setText("");
+        telat.setValue(0);
         denda.setText("");
+        tampilkan();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void searchPeminjamanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_searchPeminjamanItemStateChanged
+        // TODO add your handling code here:
+        if (evt.getStateChange() == java.awt.event.ItemEvent.SELECTED)
+        {
+            String id = searchPeminjaman.getSelectedItem().toString();
+
+            ResultSet hasil = peminjaman.searchData(id);
+
+            try {
+                while (hasil.next())
+                {
+                    idpel.setText(hasil.getString(3));
+                    idmo.setText(hasil.getString(4));
+                    tp.setText(hasil.getString(5));
+                    lp.setText(String.valueOf(hasil.getInt(7)));
+                    bs.setText(hasil.getString(9));
+                    tk.setText(hasil.getString(6));
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(PegawaiPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        
+    }//GEN-LAST:event_searchPeminjamanItemStateChanged
+
+    private void searchMobilFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchMobilFieldKeyPressed
+        // TODO add your handling code here:
+        for (int i = 0; i < dataMobilTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataMobilTable.getColumnCount(); j++)
+            {
+                dataMobilTable.setValueAt("", i, j);
+            }
+        }
+
+        try {
+            ResultSet hasil = mobil.searchData(searchMobilField.getText());
+            
+            int row = 0;
+            while (hasil.next())
+            {
+                dataMobilTable.setValueAt(hasil.getString(1), row, 0);
+                dataMobilTable.setValueAt(hasil.getString(2), row, 1);
+                dataMobilTable.setValueAt(hasil.getString(3), row, 2);
+                dataMobilTable.setValueAt(hasil.getString(4), row, 3);
+                
+                row++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_searchMobilFieldKeyPressed
+
+    private void telatStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_telatStateChanged
+        // TODO add your handling code here:
+        if (Integer.parseInt(telat.getValue().toString()) < 0)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Hari Telat tidak boleh negatif!", "Error", 2);
+            telat.setValue(0);
+        }
+        else
+        {
+            if (telat.getValue().equals("0"))
+            {
+                denda.setText("0");
+                telat.setEnabled(false);
+            }
+            else
+            {            
+                int tlt = Integer.parseInt(telat.getValue().toString());
+                long biaya = 10000;
+
+                long dnd = tlt * biaya;
+
+                denda.setText(String.valueOf(dnd));                
+            }
+        }
+    }//GEN-LAST:event_telatStateChanged
 
     private void tampilkan()
     {
@@ -1349,8 +1445,8 @@ public class PegawaiPage extends javax.swing.JFrame {
             {                
                 dataPelangganTable.setValueAt(hasil.getString(1), row, 0);                
                 dataPelangganTable.setValueAt(hasil.getString(2), row, 1);                
-                dataPelangganTable.setValueAt(hasil.getString(3), row, 2);                
-                dataPelangganTable.setValueAt(hasil.getString(4), row, 3);                
+                dataPelangganTable.setValueAt(hasil.getString(4), row, 2);                
+                dataPelangganTable.setValueAt(hasil.getString(3), row, 3);                
                 
                 row++;
             }
@@ -1385,6 +1481,7 @@ public class PegawaiPage extends javax.swing.JFrame {
         
         jenisComBox.removeAllItems();
         idPelangganComBox.removeAllItems();
+        searchPeminjaman.removeAllItems();
         try {
             ResultSet hasil = pelanggan.getData();
                     
@@ -1402,6 +1499,17 @@ public class PegawaiPage extends javax.swing.JFrame {
             while (hasilMobil.next())
             {                              
                 jenisComBox.addItem(hasilMobil.getString(2));                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            ResultSet hasilPeminjaman = peminjaman.getData();
+                    
+            while (hasilPeminjaman.next())
+            {                              
+                searchPeminjaman.addItem(hasilPeminjaman.getString(1));                
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
@@ -1550,9 +1658,9 @@ public class PegawaiPage extends javax.swing.JFrame {
     private javax.swing.JTextField searchMobilField;
     private javax.swing.JTextField searchPelanggan;
     private javax.swing.JButton searchPelangganButton;
-    private javax.swing.JTextField searchPeminjaman;
+    private javax.swing.JComboBox<String> searchPeminjaman;
     private javax.swing.JTextField tanggalKembali;
-    private javax.swing.JTextField telat;
+    private javax.swing.JSpinner telat;
     private javax.swing.JTextField tk;
     private javax.swing.JTextField totalSewa;
     private javax.swing.JTextField tp;
