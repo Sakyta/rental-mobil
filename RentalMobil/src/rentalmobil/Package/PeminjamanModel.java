@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author nurka
  */
-public class PelangganModel {
+public class PeminjamanModel {
     private String driver = "com.mysql.cj.jdbc.Driver";
     private String db = "jdbc:mysql://localhost:3306/db_momobilan";
     private String user = "root";
@@ -40,9 +40,9 @@ public class PelangganModel {
         }
     }
     
-    public boolean insert(String id, String nama, String alamat, String kontak)
+    public boolean insert(String id, String idPeg, String idPel, String idMo, String tglPinjam, String tglKembali, int lama, int telat, String biaya, String denda)
     {
-        String query = "INSERT INTO pelanggan VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO peminjaman VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try 
         {
@@ -57,9 +57,15 @@ public class PelangganModel {
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
         {
             preparedStatement.setString(1, id);
-            preparedStatement.setString(2, nama);
-            preparedStatement.setString(3, alamat);            
-            preparedStatement.setString(4, kontak);  
+            preparedStatement.setString(2, idPeg);
+            preparedStatement.setString(3, idPel);
+            preparedStatement.setString(4, idMo);
+            preparedStatement.setString(5, tglPinjam);
+            preparedStatement.setString(6, tglKembali);
+            preparedStatement.setInt(7, lama);
+            preparedStatement.setInt(8, telat);
+            preparedStatement.setString(9, biaya);
+            preparedStatement.setString(10, denda);
 
             preparedStatement.executeUpdate();
             return true;
@@ -71,9 +77,9 @@ public class PelangganModel {
         }
     }
     
-    public void update(String id, String nama, String alamat, String contact)
+    public void update(String id, int telat, String denda)
     {
-        String query = "UPDATE pelanggan SET nama = ?, alamat = ?, contact = ? WHERE id_pelanggan = ?";
+        String query = "UPDATE peminjaman SET telat = ?, denda = ? WHERE id_peminjaman = ?";
         
         try 
         {
@@ -87,10 +93,9 @@ public class PelangganModel {
         
         try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
         {            
-            preparedStatement.setString(1, nama);
-            preparedStatement.setString(2, alamat);            
-            preparedStatement.setString(3, contact);  
-            preparedStatement.setString(4, id);
+            preparedStatement.setInt(1, telat);
+            preparedStatement.setString(2, denda);
+            preparedStatement.setString(3,id);                                  
 
             preparedStatement.executeUpdate();            
         } 
@@ -102,7 +107,7 @@ public class PelangganModel {
     
     public void delete(String id)
     {
-        String query = "DELETE FROM pelanggan WHERE id_pelanggan = ?";
+        String query = "DELETE FROM peminjaman WHERE id_peminjaman = ?";
         
         try 
         {
@@ -128,7 +133,7 @@ public class PelangganModel {
     
     public ResultSet searchData(String id)
     {        
-        String query = "SELECT * FROM pelanggan WHERE nama LIKE '%" + id + "%'";
+        String query = "SELECT * FROM peminjaman WHERE id_peminjaman = '" + id + "'";
         
         try 
         {
@@ -155,7 +160,7 @@ public class PelangganModel {
     
     public ResultSet getData()
     {
-        String query = "SELECT * FROM pelanggan";
+        String query = "SELECT * FROM peminjaman";
         
         try 
         {

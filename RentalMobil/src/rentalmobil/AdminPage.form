@@ -431,7 +431,7 @@
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Component id="editPasswordPegawaiField" min="-2" pref="243" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -503,9 +503,9 @@
                                   <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="editPasswordPegawaiField" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                  <Component id="editPasswordPegawaiField" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -711,11 +711,6 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="editPasswordPegawaiField">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="editPegawaiButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edit"/>
@@ -742,6 +737,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deletePegawaiButtonActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="editPasswordPegawaiField">
+              <Properties>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -1182,20 +1182,21 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable1">
+                <Component class="javax.swing.JTable" name="reportTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="8" rowCount="30">
-                        <Column editable="true" title="ID" type="java.lang.Object"/>
-                        <Column editable="true" title="Pelanggan" type="java.lang.Object"/>
-                        <Column editable="true" title="Mobil" type="java.lang.Object"/>
-                        <Column editable="true" title="Pegawai" type="java.lang.Object"/>
-                        <Column editable="true" title="Tanggal Pinjam" type="java.lang.Object"/>
-                        <Column editable="true" title="Tanggal Kembali" type="java.lang.Object"/>
-                        <Column editable="true" title="Sewa" type="java.lang.Object"/>
-                        <Column editable="true" title="Denda" type="java.lang.Object"/>
+                        <Column editable="false" title="ID" type="java.lang.Object"/>
+                        <Column editable="false" title="Pelanggan" type="java.lang.Object"/>
+                        <Column editable="false" title="Mobil" type="java.lang.Object"/>
+                        <Column editable="false" title="Pegawai" type="java.lang.Object"/>
+                        <Column editable="false" title="Tanggal Pinjam" type="java.lang.Object"/>
+                        <Column editable="false" title="Tanggal Kembali" type="java.lang.Object"/>
+                        <Column editable="false" title="Sewa" type="java.lang.Object"/>
+                        <Column editable="false" title="Denda" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
               </SubComponents>

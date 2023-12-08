@@ -19,6 +19,7 @@ public class AdminPage extends javax.swing.JFrame {
     private PegawaiModel pegawai;
     private UsersModel users;
     private MobilModel mobil;
+    private PeminjamanModel peminjaman;
     private String id;
 
     public void setId(String id) 
@@ -36,6 +37,7 @@ public class AdminPage extends javax.swing.JFrame {
         pegawai = new PegawaiModel();
         users = new UsersModel();
         mobil = new MobilModel();
+        peminjaman = new PeminjamanModel();
         initComponents();        
         
         tampilkan();
@@ -94,10 +96,10 @@ public class AdminPage extends javax.swing.JFrame {
         editUsernamePegawaiField = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        editPasswordPegawaiField = new javax.swing.JPasswordField();
         editPegawaiButton = new javax.swing.JButton();
         cancelPegawaiButton = new javax.swing.JButton();
         deletePegawaiButton = new javax.swing.JButton();
+        editPasswordPegawaiField = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -131,7 +133,7 @@ public class AdminPage extends javax.swing.JFrame {
         deleteMobilButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        reportTable = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -405,8 +407,6 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         jLabel16.setText("Password");
 
-        editPasswordPegawaiField.setEnabled(false);
-
         editPegawaiButton.setText("Edit");
         editPegawaiButton.setEnabled(false);
         editPegawaiButton.addActionListener(new java.awt.event.ActionListener() {
@@ -430,6 +430,8 @@ public class AdminPage extends javax.swing.JFrame {
                 deletePegawaiButtonActionPerformed(evt);
             }
         });
+
+        editPasswordPegawaiField.setEnabled(false);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -529,7 +531,7 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(editUsernamePegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(editPasswordPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
@@ -827,7 +829,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Data Mobil", jPanel8);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        reportTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -863,8 +865,17 @@ public class AdminPage extends javax.swing.JFrame {
             new String [] {
                 "ID", "Pelanggan", "Mobil", "Pegawai", "Tanggal Pinjam", "Tanggal Kembali", "Sewa", "Denda"
             }
-        ));
-        jScrollPane3.setViewportView(jTable1);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        reportTable.setToolTipText("");
+        jScrollPane3.setViewportView(reportTable);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -956,6 +967,10 @@ public class AdminPage extends javax.swing.JFrame {
         }
         
         tampilkan();
+        idMobilField.setText("");
+        jenisMobilField.setText("");
+        sewaMobilField.setText("");
+        stokMobilField.setText("");
     }//GEN-LAST:event_insertMobilButtonActionPerformed
 
     private void resetMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetMobilButtonActionPerformed
@@ -1004,6 +1019,13 @@ public class AdminPage extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(rootPane, "Insert Data Gagal", "Error", 2);
         }
+        
+        idPegawaiField.setText("");
+        namaField.setText("");
+        alamatField.setText("");
+        contactField.setText("");
+        usernameField.setText("");
+        passwordField.setText("");
         
         tampilkan();
     }//GEN-LAST:event_insertButtonActionPerformed
@@ -1317,6 +1339,14 @@ public class AdminPage extends javax.swing.JFrame {
             }
         }
         
+        for (int i = 0; i < reportTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < reportTable.getColumnCount(); j++)
+            {
+                reportTable.setValueAt("", i, j);
+            }
+        }
+        
         try {
             ResultSet hasilPegawai = pegawai.getData();
             ResultSet hasilUsers = users.getData();
@@ -1348,6 +1378,27 @@ public class AdminPage extends javax.swing.JFrame {
                 dataMobilTable.setValueAt(hasilMobil.getString(2), row, 1);
                 dataMobilTable.setValueAt(hasilMobil.getString(3), row, 2);
                 dataMobilTable.setValueAt(hasilMobil.getString(4), row, 3);
+                
+                row++;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            ResultSet hasilPeminjaman = peminjaman.getData();
+        
+            int row = 0;
+            while (hasilPeminjaman.next())
+            {
+                reportTable.setValueAt(hasilPeminjaman.getString(1), row, 0);
+                reportTable.setValueAt(hasilPeminjaman.getString(3), row, 1);
+                reportTable.setValueAt(hasilPeminjaman.getString(4), row, 2);
+                reportTable.setValueAt(hasilPeminjaman.getString(2), row, 3);
+                reportTable.setValueAt(hasilPeminjaman.getString(5), row, 4);
+                reportTable.setValueAt(hasilPeminjaman.getString(6), row, 5);
+                reportTable.setValueAt(hasilPeminjaman.getString(9), row, 6);
+                reportTable.setValueAt(hasilPeminjaman.getString(10), row, 7);
                 
                 row++;
             }
@@ -1407,7 +1458,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JTextField editJenisMobilField;
     private javax.swing.JButton editMobilButton;
     private javax.swing.JTextField editNamaPegawaiField;
-    private javax.swing.JPasswordField editPasswordPegawaiField;
+    private javax.swing.JTextField editPasswordPegawaiField;
     private javax.swing.JButton editPegawaiButton;
     private javax.swing.JTextField editSewaMobilField;
     private javax.swing.JTextField editStokMobilField;
@@ -1460,13 +1511,13 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jenisMobilField;
     private javax.swing.JButton logOutButton;
     private javax.swing.JTextField namaField;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton refreshMobilButton;
     private javax.swing.JButton refreshPegawaiButton;
+    private javax.swing.JTable reportTable;
     private javax.swing.JButton resetButton;
     private javax.swing.JButton resetMobilButton;
     private javax.swing.JButton searchMobilButton;

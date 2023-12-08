@@ -179,6 +179,7 @@ public class LoginForm extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(rootPane, "Login Berhasil", "Success", 1);
                             PegawaiPage object = new PegawaiPage();
                             object.setVisible(true);
+                            object.setId(hasil.getString(3));
                             dispose();                
                             break;
                         }
