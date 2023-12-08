@@ -74,14 +74,58 @@ public class UsersModel {
         }
     }
     
-    public void update()
+    public void update(String id, String username, String pass)
     {
-        // TODO
+        String query = "UPDATE users SET username = ?, password = ? WHERE id_pegawai = ?";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
+        {            
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, pass);                        
+            preparedStatement.setString(3, id);
+
+            preparedStatement.executeUpdate();            
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();            
+        }
     }
     
-    public void delete()
+    public void delete(String id)
     {
-        // TODO
+        String query = "DELETE FROM users WHERE id_pegawai = ?";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
+        {            
+            preparedStatement.setString(1, id);            
+
+            preparedStatement.executeUpdate();            
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();            
+        }
     }
     
     public ResultSet getData()

@@ -82,6 +82,22 @@ public class AdminPage extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         dataPegawaiTable = new javax.swing.JTable();
         refreshPegawaiButton = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        editIdPegawaiField = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        editNamaPegawaiField = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        editContactPegawaiField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        editAlamatPegawaiField = new javax.swing.JTextArea();
+        editUsernamePegawaiField = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        editPasswordPegawaiField = new javax.swing.JPasswordField();
+        editPegawaiButton = new javax.swing.JButton();
+        cancelPegawaiButton = new javax.swing.JButton();
+        deletePegawaiButton = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -102,6 +118,17 @@ public class AdminPage extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         dataMobilTable = new javax.swing.JTable();
         refreshMobilButton = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        editIdMobilField = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        editJenisMobilField = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        editSewaMobilField = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        editStokMobilField = new javax.swing.JTextField();
+        editMobilButton = new javax.swing.JButton();
+        cancelMobilButton = new javax.swing.JButton();
+        deleteMobilButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -253,7 +280,7 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -333,6 +360,11 @@ public class AdminPage extends javax.swing.JFrame {
         });
         dataPegawaiTable.setFocusable(false);
         dataPegawaiTable.setVerifyInputWhenFocusTarget(false);
+        dataPegawaiTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataPegawaiTableMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(dataPegawaiTable);
 
         refreshPegawaiButton.setText("Refresh");
@@ -342,44 +374,170 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel11.setText("Id Pegawai ");
+
+        editIdPegawaiField.setEnabled(false);
+
+        jLabel12.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel12.setText("Nama");
+
+        editNamaPegawaiField.setEnabled(false);
+
+        jLabel13.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel13.setText("Alamat");
+
+        jLabel14.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel14.setText("Contact");
+
+        editContactPegawaiField.setEnabled(false);
+
+        editAlamatPegawaiField.setColumns(20);
+        editAlamatPegawaiField.setRows(5);
+        editAlamatPegawaiField.setEnabled(false);
+        jScrollPane2.setViewportView(editAlamatPegawaiField);
+
+        editUsernamePegawaiField.setEnabled(false);
+
+        jLabel15.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel15.setText("Username");
+
+        jLabel16.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel16.setText("Password");
+
+        editPasswordPegawaiField.setEnabled(false);
+
+        editPegawaiButton.setText("Edit");
+        editPegawaiButton.setEnabled(false);
+        editPegawaiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editPegawaiButtonActionPerformed(evt);
+            }
+        });
+
+        cancelPegawaiButton.setText("Cancel");
+        cancelPegawaiButton.setEnabled(false);
+        cancelPegawaiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelPegawaiButtonActionPerformed(evt);
+            }
+        });
+
+        deletePegawaiButton.setText("Delete");
+        deletePegawaiButton.setEnabled(false);
+        deletePegawaiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletePegawaiButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(294, 294, 294))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(319, 319, 319)
+                .addComponent(jLabel9))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(393, 393, 393)
+                .addComponent(jLabel10)
+                .addGap(6, 6, 6)
+                .addComponent(searchPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(searchPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(refreshPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(refreshPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(362, 362, 362)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(searchPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 36, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel11)
+                        .addGap(6, 6, 6)
+                        .addComponent(editIdPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5)
-                        .addContainerGap())))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editUsernamePegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editContactPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addGap(6, 6, 6)
+                                .addComponent(editNamaPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(editPasswordPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(editPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(deletePegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cancelPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(jLabel9)
                 .addGap(4, 4, 4)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(refreshPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(searchPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(refreshPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel11))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(editIdPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jLabel12))
+                            .addComponent(editNamaPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editContactPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel14))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editUsernamePegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(editPasswordPegawaiField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cancelPegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deletePegawaiButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -428,16 +586,15 @@ public class AdminPage extends javax.swing.JFrame {
                             .addComponent(sewaMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23)
                             .addComponent(stokMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(idMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel21)
-                                .addComponent(jenisMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(idMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel21)
+                            .addComponent(jenisMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(245, 245, 245)
                         .addComponent(insertMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(136, 136, 136)
                         .addComponent(resetMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(185, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel19)
@@ -512,7 +669,23 @@ public class AdminPage extends javax.swing.JFrame {
             new String [] {
                 "ID", "Jenis", "Sewa (/hari)", "Stok"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        dataMobilTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataMobilTableMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dataMobilTableMouseEntered(evt);
+            }
+        });
         jScrollPane4.setViewportView(dataMobilTable);
 
         refreshMobilButton.setText("Refresh");
@@ -522,28 +695,93 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel24.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel24.setText("Id Mobil");
+
+        editIdMobilField.setEnabled(false);
+
+        jLabel27.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel27.setText("Jenis");
+
+        editJenisMobilField.setEnabled(false);
+
+        jLabel28.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel28.setText("Sewa");
+
+        editSewaMobilField.setEnabled(false);
+
+        jLabel29.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
+        jLabel29.setText("Stok");
+
+        editStokMobilField.setEnabled(false);
+
+        editMobilButton.setText("Edit");
+        editMobilButton.setEnabled(false);
+        editMobilButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editMobilButtonActionPerformed(evt);
+            }
+        });
+
+        cancelMobilButton.setText("Cancel");
+        cancelMobilButton.setEnabled(false);
+        cancelMobilButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelMobilButtonActionPerformed(evt);
+            }
+        });
+
+        deleteMobilButton.setText("Delete");
+        deleteMobilButton.setEnabled(false);
+        deleteMobilButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteMobilButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel24)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel29))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(editSewaMobilField, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                                    .addComponent(editIdMobilField)
+                                    .addComponent(editJenisMobilField)
+                                    .addComponent(editStokMobilField)))
+                            .addComponent(deleteMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addComponent(editMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addGap(0, 328, Short.MAX_VALUE)
-                                .addComponent(jLabel25))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addComponent(refreshMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel26)))
+                        .addContainerGap(132, Short.MAX_VALUE)
+                        .addComponent(cancelMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(112, 112, 112)))
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane4)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(335, 335, 335))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(jLabel26)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(searchMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(refreshMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
@@ -557,8 +795,33 @@ public class AdminPage extends javax.swing.JFrame {
                     .addComponent(jLabel26)
                     .addComponent(searchMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(refreshMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(editIdMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel27)
+                            .addComponent(editJenisMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editSewaMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel28))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(editStokMobilField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(editMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(cancelMobilButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(41, 41, 41))
         );
 
@@ -609,7 +872,7 @@ public class AdminPage extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -653,7 +916,7 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTabbedPane1)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -747,11 +1010,27 @@ public class AdminPage extends javax.swing.JFrame {
 
     private void refreshMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshMobilButtonActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < dataMobilTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataMobilTable.getColumnCount(); j++)
+            {
+                dataMobilTable.setValueAt("", i, j);
+            }
+        }
+        
         tampilkan();
     }//GEN-LAST:event_refreshMobilButtonActionPerformed
 
     private void refreshPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPegawaiButtonActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < dataPegawaiTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPegawaiTable.getColumnCount(); j++)
+            {
+                dataPegawaiTable.setValueAt("", i, j);
+            }
+        }
+        
         tampilkan();
     }//GEN-LAST:event_refreshPegawaiButtonActionPerformed
 
@@ -790,20 +1069,217 @@ public class AdminPage extends javax.swing.JFrame {
         try {            
             ResultSet hasilPegawai = pegawai.searchData(searchPegawaiField.getText());
             ResultSet hasilUsers = users.searchData(searchPegawaiField.getText());
-            while (hasilPegawai.next() && hasilUsers.next())
+            while (hasilPegawai.next())
             {
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(1), 0, 0);
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(2), 0, 1);
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(3), 0, 2);
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(4), 0, 3);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(1), 0, 4);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(2), 0, 5);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(4), 0, 6);
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(5), 0, 4);
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(6), 0, 5);
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(8), 0, 6);
             }
         } catch (SQLException ex) {
             Logger.getLogger(AdminPage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_searchPegawaiButtonActionPerformed
+
+    private void editPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPegawaiButtonActionPerformed
+        // TODO add your handling code here:
+        String id = editIdPegawaiField.getText();
+        String nama = editNamaPegawaiField.getText();
+        String alamat = editAlamatPegawaiField.getText();
+        String contact = editContactPegawaiField.getText();
+        String username = editUsernamePegawaiField.getText();
+        String password = editPasswordPegawaiField.getText();
+        
+        pegawai.update(id, nama, alamat, contact);
+        users.update(id, username, password);
+        
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
+
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+
+        editPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_editPegawaiButtonActionPerformed
+
+    private void cancelPegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelPegawaiButtonActionPerformed
+        // TODO add your handling code here:
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
+
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+
+        editPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+    }//GEN-LAST:event_cancelPegawaiButtonActionPerformed
+
+    private void editMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editMobilButtonActionPerformed
+        // TODO add your handling code here:   
+        String id = editIdMobilField.getText();
+        String jenis = editJenisMobilField.getText();
+        String sewa = editSewaMobilField.getText();
+        String stok = editStokMobilField.getText();
+        
+        mobil.update(id, jenis, sewa, stok);
+        
+        editIdMobilField.setText("");
+        editJenisMobilField.setText("");
+        editSewaMobilField.setText("");                
+        editStokMobilField.setText("");                
+        
+        editJenisMobilField.setEnabled(false);
+        editSewaMobilField.setEnabled(false);
+        editStokMobilField.setEnabled(false);                
+
+        editMobilButton.setEnabled(false);
+        deleteMobilButton.setEnabled(false);
+        cancelMobilButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_editMobilButtonActionPerformed
+
+    private void cancelMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelMobilButtonActionPerformed
+        // TODO add your handling code here:
+        editIdMobilField.setText("");
+        editJenisMobilField.setText("");
+        editSewaMobilField.setText("");                
+        editStokMobilField.setText("");                
+        
+        editJenisMobilField.setEnabled(false);
+        editSewaMobilField.setEnabled(false);
+        editStokMobilField.setEnabled(false);                
+
+        editMobilButton.setEnabled(false);
+        deleteMobilButton.setEnabled(false);
+        cancelMobilButton.setEnabled(false);
+    }//GEN-LAST:event_cancelMobilButtonActionPerformed
+
+    private void dataMobilTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataMobilTableMouseClicked
+        // TODO add your handling code here:
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                int row = dataMobilTable.getSelectedRow();
+                editIdMobilField.setText(dataMobilTable.getValueAt(row, 0).toString());
+                editJenisMobilField.setText(dataMobilTable.getValueAt(row, 1).toString());
+                editSewaMobilField.setText(dataMobilTable.getValueAt(row, 2).toString());                
+                editStokMobilField.setText(dataMobilTable.getValueAt(row, 3).toString());                
+                
+                editJenisMobilField.setEnabled(true);
+                editSewaMobilField.setEnabled(true);
+                editStokMobilField.setEnabled(true);                
+
+                editMobilButton.setEnabled(true);
+                deleteMobilButton.setEnabled(true);
+                cancelMobilButton.setEnabled(true);
+            }
+        }
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Data Kosong!", "Error", 2);
+        } 
+    }//GEN-LAST:event_dataMobilTableMouseClicked
+
+    private void dataPegawaiTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataPegawaiTableMouseClicked
+        // TODO add your handling code here:
+        try 
+        {
+            if (evt.getClickCount() == 2)
+            {
+                int row = dataPegawaiTable.getSelectedRow();
+                editIdPegawaiField.setText(dataPegawaiTable.getValueAt(row, 0).toString());
+                editNamaPegawaiField.setText(dataPegawaiTable.getValueAt(row, 1).toString());
+                editAlamatPegawaiField.setText(dataPegawaiTable.getValueAt(row, 2).toString());
+                editContactPegawaiField.setText(dataPegawaiTable.getValueAt(row, 3).toString());
+                editUsernamePegawaiField.setText(dataPegawaiTable.getValueAt(row, 4).toString());
+                editPasswordPegawaiField.setText(dataPegawaiTable.getValueAt(row, 5).toString());
+
+                editNamaPegawaiField.setEnabled(true);
+                editAlamatPegawaiField.setEnabled(true);
+                editContactPegawaiField.setEnabled(true);
+                editUsernamePegawaiField.setEnabled(true);
+                editPasswordPegawaiField.setEnabled(true);
+
+                editPegawaiButton.setEnabled(true);
+                deletePegawaiButton.setEnabled(true);
+                cancelPegawaiButton.setEnabled(true);
+            }
+        }
+        catch (Throwable t)
+        {
+            JOptionPane.showMessageDialog(rootPane, "Data Kosong!", "Error", 2);
+        }        
+    }//GEN-LAST:event_dataPegawaiTableMouseClicked
+
+    private void deletePegawaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletePegawaiButtonActionPerformed
+        // TODO add your handling code here:
+        String id = editIdPegawaiField.getText();
+        
+        users.delete(id);
+        pegawai.delete(id);
+        
+        editIdPegawaiField.setText("");
+        editNamaPegawaiField.setText("");
+        editAlamatPegawaiField.setText("");
+        editContactPegawaiField.setText("");
+        editUsernamePegawaiField.setText("");
+        editPasswordPegawaiField.setText("");
+
+        editNamaPegawaiField.setEnabled(false);
+        editAlamatPegawaiField.setEnabled(false);
+        editContactPegawaiField.setEnabled(false);
+        editUsernamePegawaiField.setEnabled(false);
+        editPasswordPegawaiField.setEnabled(false);
+
+        editPegawaiButton.setEnabled(false);
+        deletePegawaiButton.setEnabled(false);
+        cancelPegawaiButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_deletePegawaiButtonActionPerformed
+
+    private void dataMobilTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataMobilTableMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dataMobilTableMouseEntered
+
+    private void deleteMobilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteMobilButtonActionPerformed
+        // TODO add your handling code here:
+        mobil.delete(editIdMobilField.getText());
+        editIdMobilField.setText("");
+        editJenisMobilField.setText("");
+        editSewaMobilField.setText("");                
+        editStokMobilField.setText("");                
+        
+        editJenisMobilField.setEnabled(false);
+        editSewaMobilField.setEnabled(false);
+        editStokMobilField.setEnabled(false);                
+
+        editMobilButton.setEnabled(false);
+        deleteMobilButton.setEnabled(false);
+        cancelMobilButton.setEnabled(false);
+        tampilkan();
+    }//GEN-LAST:event_deleteMobilButtonActionPerformed
 
     private void startup()
     {
@@ -825,6 +1301,22 @@ public class AdminPage extends javax.swing.JFrame {
     
     private void tampilkan()
     {
+        for (int i = 0; i < dataPegawaiTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataPegawaiTable.getColumnCount(); j++)
+            {
+                dataPegawaiTable.setValueAt("", i, j);
+            }
+        }
+        
+        for (int i = 0; i < dataMobilTable.getRowCount(); i++)
+        {
+            for (int j = 0; j < dataMobilTable.getColumnCount(); j++)
+            {
+                dataMobilTable.setValueAt("", i, j);
+            }
+        }
+        
         try {
             ResultSet hasilPegawai = pegawai.getData();
             ResultSet hasilUsers = users.getData();
@@ -836,9 +1328,9 @@ public class AdminPage extends javax.swing.JFrame {
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(2), row, 1);
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(3), row, 2);
                 dataPegawaiTable.setValueAt(hasilPegawai.getString(4), row, 3);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(1), row, 4);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(2), row, 5);
-                dataPegawaiTable.setValueAt(hasilUsers.getString(4), row, 6);                
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(5), row, 4);
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(6), row, 5);
+                dataPegawaiTable.setValueAt(hasilPegawai.getString(8), row, 6);                
                 
                 row++;
             }
@@ -901,9 +1393,25 @@ public class AdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea alamatField;
+    private javax.swing.JButton cancelMobilButton;
+    private javax.swing.JButton cancelPegawaiButton;
     private javax.swing.JTextField contactField;
     private javax.swing.JTable dataMobilTable;
     private javax.swing.JTable dataPegawaiTable;
+    private javax.swing.JButton deleteMobilButton;
+    private javax.swing.JButton deletePegawaiButton;
+    private javax.swing.JTextArea editAlamatPegawaiField;
+    private javax.swing.JTextField editContactPegawaiField;
+    private javax.swing.JTextField editIdMobilField;
+    private javax.swing.JTextField editIdPegawaiField;
+    private javax.swing.JTextField editJenisMobilField;
+    private javax.swing.JButton editMobilButton;
+    private javax.swing.JTextField editNamaPegawaiField;
+    private javax.swing.JPasswordField editPasswordPegawaiField;
+    private javax.swing.JButton editPegawaiButton;
+    private javax.swing.JTextField editSewaMobilField;
+    private javax.swing.JTextField editStokMobilField;
+    private javax.swing.JTextField editUsernamePegawaiField;
     private javax.swing.JLabel greetingsText;
     private javax.swing.JTextField idMobilField;
     private javax.swing.JTextField idPegawaiField;
@@ -911,14 +1419,24 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JButton insertMobilButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -937,6 +1455,7 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;

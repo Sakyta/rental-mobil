@@ -71,14 +71,59 @@ public class MobilModel {
         }
     }
     
-    public void update()
+    public void update(String id, String jenis, String sewa, String stok)
     {
-        // TODO
+        String query = "UPDATE mobil SET jenis = ?, sewa = ?, stok = ? WHERE id_mobil = ?";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
+        {            
+            preparedStatement.setString(1, jenis);
+            preparedStatement.setString(2, sewa);            
+            preparedStatement.setString(3, stok);  
+            preparedStatement.setString(4, id);
+
+            preparedStatement.executeUpdate();            
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();            
+        }
     }
     
-    public void delete()
+    public void delete(String id)
     {
-        // TODO
+        String query = "DELETE FROM mobil WHERE id_mobil = ?";
+        
+        try 
+        {
+            conn = (Connection) DriverManager.getConnection(db, user, password);
+            state = (Statement) conn.createStatement();
+        } 
+        catch (Exception e) 
+        {
+            System.out.println("Connection Error");
+        }
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(query)) 
+        {            
+            preparedStatement.setString(1, id);            
+
+            preparedStatement.executeUpdate();            
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();            
+        }
     }
     
     public ResultSet searchData(String id)

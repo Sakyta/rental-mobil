@@ -9,7 +9,7 @@ import java.sql.*;
  *
  * @author nurka
  */
-public class PegawaiModel {
+public class PelangganModel {
     private String driver = "com.mysql.cj.jdbc.Driver";
     private String db = "jdbc:mysql://localhost:3306/db_momobilan";
     private String user = "root";
@@ -42,7 +42,7 @@ public class PegawaiModel {
     
     public boolean insert(String id, String nama, String alamat, String kontak)
     {
-        String query = "INSERT INTO pegawai VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO pelanggan VALUES (?, ?, ?, ?)";
         
         try 
         {
@@ -73,7 +73,7 @@ public class PegawaiModel {
     
     public void update(String id, String nama, String alamat, String contact)
     {
-        String query = "UPDATE pegawai SET nama = ?, alamat = ?, contact = ? WHERE id_pegawai = ?";
+        String query = "UPDATE pelanggan SET nama = ?, alamat = ?, contact = ? WHERE id_pelanggan = ?";
         
         try 
         {
@@ -102,7 +102,7 @@ public class PegawaiModel {
     
     public void delete(String id)
     {
-        String query = "DELETE FROM pegawai WHERE id_pegawai = ?";
+        String query = "DELETE FROM pelanggan WHERE id_pelanggan = ?";
         
         try 
         {
@@ -128,7 +128,7 @@ public class PegawaiModel {
     
     public ResultSet searchData(String id)
     {        
-        String query = "SELECT * FROM pegawai JOIN users ON pegawai.id_pegawai = users.id_pegawai WHERE pegawai.id_pegawai = '" + id + "'";
+        String query = "SELECT * FROM pelanggan WHERE id_pelanggan = '" + id + "'";
         
         try 
         {
@@ -155,7 +155,7 @@ public class PegawaiModel {
     
     public ResultSet getData()
     {
-        String query = "SELECT * FROM pegawai JOIN users ON pegawai.id_pegawai = users.id_pegawai";
+        String query = "SELECT * FROM pelanggan";
         
         try 
         {
